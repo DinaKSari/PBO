@@ -4,7 +4,7 @@ public class Minuman {
     private String merk;
     private double kapasitas;
 
-    public void setBentuk(String newMerk){
+    public void setMerk(String newMerk){
         merk = newMerk;
     }
 
