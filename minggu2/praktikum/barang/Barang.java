@@ -15,7 +15,7 @@ public class Barang {
         System.out.println("kode: " + kode);
         System.out.println("nama barang: " + namaBarang);
         System.out.println("harga dasar: Rp. " + hargaDasar);
-        System.out.println("diskon: " + diskon + "%");
+        System.out.println("diskon: " + (int)(100 * diskon) + "%");
         System.out.println("harga jual: Rp. " + hitungHargaJual());
     }
 }
