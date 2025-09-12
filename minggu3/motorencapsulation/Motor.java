@@ -1,6 +1,6 @@
 package motorencapsulation;
 public class Motor {
-    private  int kecepatan = 0;
+    private  int kecepatan = 90;
     private  boolean kontakOn = false;
     //nambah methhod
     public void nyalakanMesin(){
@@ -12,7 +12,7 @@ public class Motor {
     }
     public void tambahKecepatan () {
         if (kontakOn == true) {
-            if(kecepatan <= 100){
+            if(kecepatan != 100){
                 kecepatan += 5;
             } else{
                 System.out.println("Kecepatan Max! Tidak bisa menambah kecepatan!");
