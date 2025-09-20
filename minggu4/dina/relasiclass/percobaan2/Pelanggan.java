@@ -1,0 +1,36 @@
+package minggu4.dina.relasiclass.percobaan2;
+public class Pelanggan {
+    private String nama;
+    private Mobil mobil; // Atribut bertipe objek Mobil
+    private Sopir sopir; // Atribut bertipe objek Sopir
+    private int hari;
+    public Pelanggan() {
+    }
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+    public String getNama() {
+        return nama;
+    }
+    public void setMobil(Mobil mobil) {
+        this.mobil = mobil;
+    }
+    public Mobil getMobil() {
+        return mobil;
+    }
+    public void setSopir(Sopir sopir) {
+        this.sopir = sopir;
+    }
+    public Sopir getSopir() {
+        return sopir;
+    }
+    public void setHari(int hari) {
+        this.hari = hari;
+    }
+    public int getHari() {
+        return hari;
+    }
+    public int hitungBiayaTotal() {
+        return mobil.hitungBiayaMobil(hari) + sopir.hitungBiayaSopir(hari);
+    }
+}
