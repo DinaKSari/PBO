@@ -16,5 +16,8 @@ public class MainPercobaan2 {
         p.setHari(2);
 
         System.out.println("Biaya Total = " + p.hitungBiayaTotal());
+        // Tambahan dari pertanyaan nomor 6
+        System.out.println(p.getMobil().getMerk());
+
     }
 }
