@@ -2,13 +2,13 @@ package minggu4.dina.relasiclass.percobaan1;
 public class MainPercobaan1 {
     public static void main(String[] args) {
         // Deklarasi dan instansiasi objek Processor
+        
         Processor p = new Processor("Intel i5", 3);
 
         // Deklarasi dan instansiasi objek Laptop dengan objek Processor yang sudah ada
-        Laptop L = new Laptop("Thinkpad", p);
+        //modifikasi untuk pertanyaan 6
+        Laptop L = new Laptop("Thinkpad", new Processor("Intel i5", 3));
         L.info(); // Memanggil method info() dari objek Laptop
-
-        System.out.println("--------------------"); // Pembatas untuk output
 
         // Contoh lain dengan setter
         Processor p1 = new Processor();
