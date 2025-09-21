@@ -69,7 +69,7 @@ public class Perpustakaan {
             System.out.println("Gagal menambahkan anggota. Objek anggota tidak boleh null.");
             return;
         }
-        // Cek apakah anggota sudah ada (berdasarkan ID Anggota)
+        
         for (int i = 0; i < jumlahAnggota; i++) {
             if (daftarAnggota[i].getIdAnggota().equals(anggota.getIdAnggota())) {
                 System.out.println("Anggota dengan ID " + anggota.getIdAnggota() + " sudah terdaftar.");
