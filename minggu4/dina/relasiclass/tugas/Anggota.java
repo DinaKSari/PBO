@@ -15,5 +15,11 @@ public class Anggota {
     public String getIdAnggota(){
         return idAnggota;
     }
+    public void setNama(String nama){
+        this.nama = nama;
+    }
+    public String getNama(){
+        return nama;
+    }
     
 }
