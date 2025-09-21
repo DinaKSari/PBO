@@ -5,5 +5,10 @@ public class MainPercobaan4 {
         Gerbong gerbong = new Gerbong("A", 10);
         gerbong.setPenumpang(p, 1);
         System.out.println(gerbong.info());
+
+        // pertanyaan 4
+        Penumpang Budi = new Penumpang("1234", "Budi");
+        gerbong.setPenumpang(Budi, 1);
+        System.out.println(gerbong.info());
     }
 }
