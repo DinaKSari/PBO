@@ -33,6 +33,23 @@ public class Anggota {
             System.out.println("Gagal menambahkan transaksi. Daftar peminjaman " + this.nama + " sudah penuh.");
         }
     }
+
+    public void hapusPeminjaman(TransaksiPeminjaman transaksi){
+        int indeksDitemukan = -1;
+        for (int i = 0; i < jumlahPeminjaman; i++) { 
+            if (this.daftarPeminjaman[i] != null && this.daftarPeminjaman[i].equals(transaksi)) {
+                indeksDitemukan = i;
+                break;
+            }
+        }
+        if (indeksDitemukan != -1) {
+            for (int i = indeksDitemukan; i < jumlahPeminjaman - 1; i++) {
+                this.daftarPeminjaman[i] = this.daftarPeminjaman[i + 1];
+            }
+            this.daftarPeminjaman[jumlahPeminjaman - 1] = null;
+            this.jumlahPeminjaman--;
+        }
+    }
     
     public String info(){
         String info = "";
