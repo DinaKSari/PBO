@@ -5,5 +5,17 @@ public class Buku {
     private String isbn;
     private boolean tersedia;
 
+    public Buku(String judul, String penulis, String isbn) {
+        this.judul = judul;
+        this.penulis = penulis;
+        this.isbn = isbn;
+    }
+    public void setJudul(String judul){
+        this.judul = judul;
+    }
+
+    public String getJudul(){
+        return judul;
+    }
     
 }
