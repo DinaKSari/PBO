@@ -26,7 +26,12 @@ public class Anggota {
     }
 
     public void tambahPeminjaman(TransaksiPeminjaman transaksiPeminjaman){
-
+        if (jumlahPeminjaman < daftarPeminjaman.length) {
+            this.daftarPeminjaman[jumlahPeminjaman] = transaksiPeminjaman;
+            this.jumlahPeminjaman++;
+        } else {
+            System.out.println("Gagal menambahkan transaksi. Daftar peminjaman " + this.nama + " sudah penuh.");
+        }
     }
     
     public String info(){
