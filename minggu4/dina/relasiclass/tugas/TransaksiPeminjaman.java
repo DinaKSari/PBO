@@ -15,6 +15,9 @@ public class TransaksiPeminjaman {
         this.anggota = anggota;
         this.buku = buku;
     }
+    public void setTanggalKembaliAsli(LocalDate tanggal){
+        tanggalKembaliAsli = tanggal;
+    }
     public String getIdTransaksi(){
         return idTransaksi;
     }
