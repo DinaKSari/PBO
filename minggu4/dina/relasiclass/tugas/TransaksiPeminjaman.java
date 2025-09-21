@@ -36,10 +36,13 @@ public class TransaksiPeminjaman {
     public Buku getBuku(){
         return buku;
     }
-    public double hitungDenda(){
-        int telat = tanggalKembaliAsli.getDayOfMonth() - tanggalKembaliAsli.getDayOfMonth();
-        double denda = 5000 * telat;
-        return denda;
+    public double hitungDenda() {
+        int telat = tanggalKembaliAsli.getDayOfMonth() - tanggalKembaliDiharapkan.getDayOfMonth();
+        if (telat > 0) {
+            return 5000 * telat;
+        } else {
+            return 0;
+        }
     }
     public String info(){
         String info = "";
