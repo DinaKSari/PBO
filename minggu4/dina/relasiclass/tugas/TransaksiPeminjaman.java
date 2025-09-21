@@ -31,7 +31,12 @@ public class TransaksiPeminjaman {
         return anggota;
     }
     public Buku getBuku(){
-        
+        return buku;
+    }
+    public double hitungDenda(){
+        int telat = tanggalKembaliAsli.getDayOfMonth() - tanggalKembaliAsli.getDayOfMonth();
+        double denda = 5000 * telat;
+        return denda;
     }
 
 }
