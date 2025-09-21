@@ -27,5 +27,11 @@ public class TransaksiPeminjaman {
     public LocalDate getTanggalKembaliAsli(){
         return tanggalKembaliAsli;
     }
-    
+    public Anggota getAnggota(){
+        return anggota;
+    }
+    public Buku getBuku(){
+        
+    }
+
 }
