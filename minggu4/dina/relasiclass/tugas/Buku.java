@@ -35,4 +35,12 @@ public class Buku {
     public boolean getTersedia(){
         return tersedia;
     }
+    public String info(){
+        String info = "";
+        info += "Judul: " + judul + "\n";
+        info += "Penulis: " + penulis + "\n";
+        info += "Isbn: " + isbn + "\n";
+        info += "Kesediaan: " + tersedia + "\n";
+        return info;
+    }
 }
