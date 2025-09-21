@@ -4,13 +4,13 @@ public class KeretaApi {
     private String kelas;
     private Pegawai masinis;
     private Pegawai asisten;
-    // Constructor 3 parameter
+    // Constructor 3 parameter (tanpa asisten)
     public KeretaApi(String nama, String kelas, Pegawai masinis) {
         this.nama = nama;
         this.kelas = kelas;
         this.masinis = masinis;
     }
-    // Constructor 4 parameter
+    // Constructor 4 parameter (dengan asisten)
     public KeretaApi(String nama, String kelas, Pegawai masinis, Pegawai asisten) {
         this.nama = nama;
         this.kelas = kelas;
@@ -39,14 +39,19 @@ public class KeretaApi {
         this.asisten = asisten;
     }
     public Pegawai getAsisten() {
-        return asisten;
+        return asisten; 
     }
     public String info() {
         String info = "";
         info += "Nama: " + this.nama + "\n";
         info += "Kelas: " + this.kelas + "\n";
         info += "Masinis: " + this.masinis.info() + "\n";
-        info += "Asisten: " + this.asisten.info() + "\n";
+        // Pastikan asisten tidak null sebelum memanggil info()
+        if (this.asisten != null) {
+            info += "Asisten: " + this.asisten.info() + "\n";
+        } else {
+            info += "Asisten: (Tidak ada)\n"; // Teks jika tidak ada asisten
+        }
         return info;
     }
 }
