@@ -38,5 +38,15 @@ public class TransaksiPeminjaman {
         double denda = 5000 * telat;
         return denda;
     }
+    public String info(){
+        String info = "";
+        info += "Id Transaksi: " + idTransaksi + "\n";
+        info += "Tanggal meminjam: " + tanggalPinjam + "\n";
+        info += "Tanggal harus dikembalikan: " + tanggalKembaliDiharapkan + "\n";
+        info += "Tanggal kembali: " + tanggalKembaliAsli + "\n";
+        info += "Anggota: " + anggota + "\n";
+        info += "Buku: " + buku + "\n";
+        return info;
+    }
 
 }
