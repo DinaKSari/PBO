@@ -8,6 +8,12 @@ public class Anggota {
         this.idAnggota = idAnggota;
         this.nama = nama;
     }
-    
+
+    public void setIdAnggota(String idAnggota){
+        this.idAnggota =idAnggota;
+    }
+    public String getIdAnggota(){
+        return idAnggota;
+    }
     
 }
