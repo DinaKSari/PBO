@@ -29,4 +29,10 @@ public class Buku {
     public String getIsbn(){
         return isbn;
     }
+    public void isTersedia(boolean tersedia){
+        this.tersedia = tersedia;
+    }
+    public boolean getTersedia(){
+        return tersedia;
+    }
 }
