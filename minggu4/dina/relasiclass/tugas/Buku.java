@@ -23,5 +23,10 @@ public class Buku {
     public String getPenulis(){
         return penulis;
     }
-    p
+    public void setIsbn(String isbn){
+        this.isbn = isbn;
+    }
+    public String getIsbn(){
+        return isbn;
+    }
 }
