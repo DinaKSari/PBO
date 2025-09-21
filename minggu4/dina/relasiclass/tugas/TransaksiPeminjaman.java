@@ -18,5 +18,14 @@ public class TransaksiPeminjaman {
     public String getIdTransaksi(){
         return idTransaksi;
     }
-    public 
+    public LocalDate getTanggalPinjam(){
+        return tanggalPinjam;
+    }
+    public LocalDate getTanggalKembaliDiharapkan(){
+        return tanggalKembaliDiharapkan;
+    }
+    public LocalDate getTanggalKembaliAsli(){
+        return tanggalKembaliAsli;
+    }
+    
 }
