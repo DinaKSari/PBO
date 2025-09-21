@@ -17,5 +17,11 @@ public class Buku {
     public String getJudul(){
         return judul;
     }
-    
+    public void setPenulis(String penulis){
+        this.penulis = penulis;
+    }
+    public String getPenulis(){
+        return penulis;
+    }
+    p
 }
