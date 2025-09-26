@@ -4,8 +4,14 @@ public class Character {
     private int health;
     private int attackPower;
 
-    public void attack(){
-        
+    public Character(String name, int health, int attackPower) {
+        this.name = name;
+        this.health = health;
+        this.attackPower = attackPower;
+    }
+
+    public void attack(Character target){
+
     }
 
     public int takeDamage(int dmg){
