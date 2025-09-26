@@ -11,11 +11,16 @@ public class Character {
     }
 
     public void attack(Character target){
-
+        System.out.println(name + " menyerang " + target.getName() + "!");
+        target.takeDamage(attackPower);
     }
 
-    public int takeDamage(int dmg){
-        return health -= dmg;
+    public void takeDamage(int dmg){
+        health -= dmg;
+        if (health < 0) {
+            health = 0;
+        }
+        System.out.println(name + " menerima " + dmg + " damage. Sisa HP: " + health);
     }
 
     public int getAttack(){
@@ -24,5 +29,9 @@ public class Character {
 
     public void setAttack(int power){
         attackPower = power;
+    }
+
+    public String getName() { 
+        return name; 
     }
 }
