@@ -16,6 +16,6 @@ class Player extends Character {
     public void healing(Player player){
         int heal = (int)(super.getHealth() * 0.1) + level;
         player.setHealth(getHealth()+heal);
-        System.out.println(getName() + " healed! health: " + getHealth());
+        System.out.println(getName() + " healed! + " + heal  +  " health: " + getHealth());
     }
 } 

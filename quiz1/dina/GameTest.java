@@ -9,5 +9,7 @@ public class GameTest {
         for (Character c : characters) { 
         c.attack(p1); // semua karakter menyerang player 
         } 
+        //player healing
+        p1.healing(p1);
     } 
 } 
