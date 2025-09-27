@@ -5,7 +5,7 @@ public class GameTest {
         Player p1 = new Player("Dina", 100, 20, 5); 
         Monster m1 = new Monster("Goblin", 80, 15, "Goblin"); 
         bossMonster m2 = new bossMonster("Dragon", 200, 30, "Dragon"); 
-        Character[] characters = {p1, m1, m2}; 
+        Character[] characters = {m1, m2}; 
         for (Character c : characters) { 
         c.attack(p1); // semua karakter menyerang player 
         } 
@@ -18,6 +18,16 @@ public class GameTest {
         p1.healing(p1);
         p1.healing(p1);
         p1.attack(m1);
+        p1.healing(p1);
+        p1.attack(m1);
+        for (Character c : characters) { 
+        c.attack(p1); // semua karakter menyerang player 
+        }
+        p1.healing(p1);
+        p1.attack(m1);
+        for (Character c : characters) { 
+        c.attack(p1); // semua karakter menyerang player 
+        }
         p1.healing(p1);
         p1.attack(m1);
         for (Character c : characters) { 
