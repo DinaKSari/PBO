@@ -11,5 +11,11 @@ class Player extends Character {
         int damage = (int)(super.getHealth() * 0.1) + level; // bonus dari level 
         System.out.println(getName() + " attacks with sword! Damage: " + damage); 
         target.takeDamage(damage); 
-    } 
+    }
+
+    public void healing(Player player){
+        int heal = (int)(super.getHealth() * 0.1) + level;
+        player.setHealth(getHealth()+heal);
+        System.out.println(getName() + " healed! health: " + getHealth());
+    }
 } 
