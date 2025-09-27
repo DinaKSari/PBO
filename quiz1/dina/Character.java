@@ -24,7 +24,12 @@ abstract class Character {
     } 
     public void takeDamage(int damage) {
         health -= damage; 
-        if (health < 0) {health = 0; }
+        if (health < 0) {
+            health = 0; 
+            System.out.println(name + " took " + damage + " damage! Remaining health: " + health); 
+            System.out.println("GAME OVER!");
+            System.exit(0);
+        }
         System.out.println(name + " took " + damage + " damage! Remaining health: " + health); 
     } 
 
