@@ -1,7 +1,7 @@
 package quiz1.dina;
-public class bossMonster extends Character{
+public class BossMonster extends Character{
     private String bossType;
-    public bossMonster(String name, int health, int attackPower, String bossType) { 
+    public BossMonster(String name, int health, int attackPower, String bossType) { 
         super(name, health, attackPower); 
         this.bossType = bossType;
     } 

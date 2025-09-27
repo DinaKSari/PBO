@@ -4,7 +4,7 @@ public class GameTest {
     public static void main(String[] args) { 
         Player p1 = new Player("Dina", 100, 20, 5); 
         Monster m1 = new Monster("Goblin", 80, 15, "Goblin"); 
-        bossMonster m2 = new bossMonster("Dragon", 200, 30, "Dragon"); 
+        BossMonster m2 = new BossMonster("Dragon", 200, 30, "Dragon");
         Character[] characters = {m1, m2}; 
         for (Character c : characters) { 
         c.attack(p1); // semua karakter menyerang player 
