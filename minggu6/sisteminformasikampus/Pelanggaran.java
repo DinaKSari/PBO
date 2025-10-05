@@ -11,4 +11,14 @@ public class Pelanggaran {
         this.tanggal = tanggal;
     }
     
+    public TataTertib getPeraturanDilanggar(){
+        return peraturanDilanggar;
+    }
+
+    public AnggotaKampus getPelanggar(){
+        return pelanggar;
+    }
+    public String getTanggal(){
+        return tanggal;
+    }
 }
