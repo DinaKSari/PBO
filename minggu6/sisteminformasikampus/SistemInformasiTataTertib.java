@@ -11,10 +11,15 @@ public class SistemInformasiTataTertib {
 
     
     public void cataPelanggaran(Pelanggaran pelanggaran){
-        
+        if (jumlahPelanggaran < daftarPelanggaran.length){
+            daftarPelanggaran[jumlahPelanggaran] = pelanggaran;
+            jumlahPelanggaran++;
+        } else {
+            System.out.println("Gagal mencatat! Penyimpanan data pelanggaran sudah penuh.");
+        }
     }
 
     public void lihatRiwayatPelanggaran(AnggotaKampus anggota){
-
+        
     }
 }
