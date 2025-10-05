@@ -4,5 +4,7 @@ public class Main {
         Kucing kucing = new Kucing("Milo");
         kucing.bersuara(); // Output: Meong! (karena metode di-override)
         kucing.mengeong();
+        Anjing anjing = new Anjing("jes");
+        anjing.bersuara();
     }
 }
