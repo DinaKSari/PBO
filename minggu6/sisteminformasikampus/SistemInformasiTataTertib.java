@@ -4,7 +4,7 @@ public class SistemInformasiTataTertib {
     private Pelanggaran daftarPelanggaran[];
     private int jumlahPelanggaran;
 
-    public SistemInformasiTataTertib(Pelanggaran[] daftarPelanggaran, int jumlahPelanggaran) {
+    public SistemInformasiTataTertib() {
         daftarPelanggaran = new Pelanggaran[100];
         jumlahPelanggaran = 0;
     }
