@@ -2,6 +2,9 @@ package minggu6.hewanOOP4;
 public class Main {
     public static void main(String[] args) {
         Kucing kucing = new Kucing("Milo", 2, "Oranye");
+        Anjing anjing = new Anjing("Jes", 3, "Bulu pendek");
+        anjing.info();
+        anjing.berjalan();
         kucing.info();
         kucing.berjalan();
 
