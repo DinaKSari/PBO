@@ -1,12 +1,10 @@
 package minggu6.hewanOOP1;
-class Hewan {
-    String nama;
-
-    public Hewan(String nama) {
-        this.nama = nama;
+class Kucing extends Hewan {
+    public Kucing(String nama) {
+        super(nama);
     }
 
-    void bersuara() {
-        System.out.println("Suara hewan...");
+    void mengeong() {
+        System.out.println("Meong!");
     }
 }
