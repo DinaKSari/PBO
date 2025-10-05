@@ -9,4 +9,11 @@ public class Dosen {
         this.departemen = departemen;
     }
     
+    public String getNip(){
+        return nip;
+    }
+
+    public String getDepartemen(){
+        return departemen;
+    }
 }
