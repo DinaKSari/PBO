@@ -16,5 +16,8 @@ public class TataTertib {
     public String getSanksi(){
         return sanksi;
     }
-    
+
+    public void terapkanSanksi(AnggotaKampus anggota){
+        
+    }
 }
