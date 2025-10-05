@@ -9,4 +9,11 @@ public class Mahasiswa {
         this.programStudi = programStudi;
     }
     
+    public String getNim(){
+        return nim;
+    }
+
+    public String getProgramStudi(){
+        return programStudi;
+    }
 }
