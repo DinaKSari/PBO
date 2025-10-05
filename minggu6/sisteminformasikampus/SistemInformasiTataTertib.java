@@ -20,6 +20,14 @@ public class SistemInformasiTataTertib {
     }
 
     public void lihatRiwayatPelanggaran(AnggotaKampus anggota){
-        
+        for (int i = 0; i < jumlahPelanggaran; i++) {
+            Pelanggaran p = daftarPelanggaran[i];
+            System.out.println("Data ke-" + (i + 1) + ":");
+            System.out.println("Nama Pelanggar : " + p.getPelanggar().getNama());
+            System.out.println("ID Pelanggar   : " + p.getPelanggar().getId());
+            System.out.println("Tanggal        : " + p.getTanggal());
+            System.out.println("Peraturan      : " + p.getPeraturanDilanggar().getPeraturan());
+            System.out.println("Sanksi         : " + p.getPeraturanDilanggar().getSanksi());
+        }
     }
 }
