@@ -18,6 +18,10 @@ public class TataTertib {
     }
 
     public void terapkanSanksi(AnggotaKampus anggota){
-        
+        System.out.println("--- PENERAPAN SANKSI ---");
+        System.out.println("Sanksi diterapkan kepada: " + anggota.getNama() + " (ID: " + anggota.getId() + ")");
+        System.out.println("Peraturan yang dilanggar: " + this.peraturan);
+        System.out.println("Sanksi yang diberikan: " + this.sanksi);
+        System.out.println("--------------------------");
     }
 }
