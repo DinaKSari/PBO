@@ -4,5 +4,7 @@ public class Main {
         Kucing kucing = new Kucing("Milo");
         kucing.bersuara(); // Output: Suara hewan... (diwarisi dari Hewan)
         kucing.mengeong();
+        Anjing anjing = new Anjing("Jes");
+        anjing.menggonggong();
     }
 }
