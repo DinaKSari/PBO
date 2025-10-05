@@ -10,7 +10,7 @@ public class SistemInformasiTataTertib {
     }
 
     
-    public void cataPelanggaran(Pelanggaran pelanggaran){
+    public void catatPelanggaran(Pelanggaran pelanggaran){
         if (jumlahPelanggaran < daftarPelanggaran.length){
             daftarPelanggaran[jumlahPelanggaran] = pelanggaran;
             jumlahPelanggaran++;
