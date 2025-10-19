@@ -45,6 +45,17 @@ public class Battle {
             
             turn++;
         }
+        System.out.println("\n=== BATTLE BERAKHIR ===");
+        if (isTeamAlive(teamA)) {
+            System.out.println("\nSELAMAT ANDA MENANG!");
+        } else if (isTeamAlive(teamB)) {
+            System.out.println("\nAnda Kalah. . .");
+        } else {
+            System.out.println("\nPertarungan berakhir seri (semua kalah).");
+        }
+        
+        printTeamStatus("Final Status Team A", teamA);
+        printTeamStatus("Final Status Team B", teamB);
     }
 
     private Character findNextLivingAttacker(List<Character> team, int startIndex) {
