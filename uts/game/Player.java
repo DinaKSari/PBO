@@ -8,7 +8,12 @@ public class Player extends Character {
 
     public Player(String name, int hp, int ap, int level, AttackStrategy strategy) {
         super(name, hp, ap);
-        // validasi
+        if (level < 1) {
+            System.out.println("Level tidak valid (< 1), diatur ke 1.");
+            this.level = 1;
+        } else {
+            this.level = level;
+        }
     }
     private static final Random rand = new Random();
     public void addSkill(Skill s) { /* non-null */ }
