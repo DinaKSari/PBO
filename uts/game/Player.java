@@ -6,12 +6,11 @@ public class Player extends Character {
     private AttackStrategy strategy;
     private final List<Skill> skills = new ArrayList<>();
 
-    public Player(String name, int hp, int ap, int level, AttackStrategy
-strategy) {
+    public Player(String name, int hp, int ap, int level, AttackStrategy strategy) {
         super(name, hp, ap);
         // validasi
     }
-
+    private static final Random rand = new Random();
     public void addSkill(Skill s) { /* non-null */ }
 
     @Override
