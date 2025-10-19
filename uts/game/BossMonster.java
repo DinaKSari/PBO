@@ -10,6 +10,7 @@ public class BossMonster extends Enemy {
     @Override
     public void attack(Character target) {
         turnCounter++;
+        int baseDamage = this.strategy.computeDamage(this, target);
         double damageMultiplier = 1.0;
         boolean isHealthLow = (double)getHealth() / (double)maxHealth < 0.5;
         boolean isThirdTurn = (turnCounter % 3 == 0);
@@ -17,7 +18,7 @@ public class BossMonster extends Enemy {
             System.out.println(getName() + " menggunakan RAGE STRIKE (x2.0 Damage)!");
             damageMultiplier = 2.0;
         }
-        int damage = (int) (getAttackPower() * damageMultiplier);
+        int damage = (int) (baseDamage * damageMultiplier);
         target.takeDamage(damage);
     }
 }
