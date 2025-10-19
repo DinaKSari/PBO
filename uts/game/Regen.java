@@ -15,5 +15,12 @@ public class Regen implements StatusEffect {
         self.setHealth(self.getHealth() + this.healPerTurn);
     }
 
+    @Override
+    public void onTurnEnd(Character self) {
+        this.duration--;
+        if (isExpired()) {
+            System.out.println(self.getName() + " berhenti meregenerasi.");
+        }
+    }
 
 }
