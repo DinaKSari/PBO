@@ -13,5 +13,9 @@ public class BossMonster extends Enemy {
         double damageMultiplier = 1.0;
         boolean isHealthLow = (double)getHealth() / (double)maxHealth < 0.5;
         boolean isThirdTurn = (turnCounter % 3 == 0);
+        if (isHealthLow || isThirdTurn) {
+            System.out.println(getName() + " menggunakan RAGE STRIKE (x2.0 Damage)!");
+            damageMultiplier = 2.0;
+        }
     }
 }
