@@ -9,9 +9,12 @@ public class Monster extends Enemy {
 
     @Override
     public void attack(Character target) {
-        int baseAP = getAttackPower();
-        int minDamage = (int) (baseAP * 0.8);
-        int maxDamage = (int) (baseAP * 1.2);
+        int baseDamage = this.strategy.computeDamage(this, target);
+        int minDamage = (int) (baseDamage * 0.8);
+        int maxDamage = (int) (baseDamage * 1.2);
+        if (minDamage == 0 && maxDamage == 0) {
+            maxDamage = 1;
+        }
         int damage = rand.nextInt(maxDamage - minDamage + 1) + minDamage;
 
         target.takeDamage(damage);
