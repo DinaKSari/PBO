@@ -57,7 +57,10 @@ public abstract class Character {
 
     public final boolean isAlive() { return health > 0; }
 
-    public final void takeDamage(int dmg) { setHealth(getHealth() - Math.max(0, dmg)); }
+    public final void takeDamage(int dmg) {
+        int finalDamage = onIncomingDamage(dmg);
+        setHealth(getHealth() - Math.max(0, finalDamage)); 
+    }
 
     public final void addEffect(StatusEffect e) { /* validasi & tambah */ }
 
