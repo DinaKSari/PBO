@@ -12,11 +12,14 @@ public class Battle {
         this.teamB = new ArrayList<>(teamB);
     }
 
-    public void run() {
-        System.out.println("=== BATTLE DIMULAI! ===");
-        printTeamStatus("Team A", teamA);
-        printTeamStatus("Team B", teamB);
-        int turn = 1;
+    
+    private boolean isTeamAlive(List<Character> team) {
+        for (Character member : team) {
+            if (member.isAlive()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void printTeamStatus(String teamName, List<Character> team) {
