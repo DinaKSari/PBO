@@ -13,4 +13,17 @@ public class Shield implements StatusEffect {
     public void onTurnStart(Character self) {
         // No effect di awal giliran
     }
+
+    @Override
+    public void onTurnEnd(Character self) {
+        this.duration--;
+        if (isExpired()) {
+            System.out.println("Shield milik " + self.getName() + " hancur.");
+        }
+    }
+
+    @Override
+    public boolean isExpired() {
+        return this.duration <= 0;
+    }
 }
