@@ -12,5 +12,6 @@ public class BossMonster extends Enemy {
         turnCounter++;
         double damageMultiplier = 1.0;
         boolean isHealthLow = (double)getHealth() / (double)maxHealth < 0.5;
+        boolean isThirdTurn = (turnCounter % 3 == 0);
     }
 }
