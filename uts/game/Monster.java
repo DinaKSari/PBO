@@ -1,5 +1,4 @@
 package uts.game;
-
 public class Monster extends Enemy {
     public Monster(String name, int hp, int ap, int threatLevel,
 AttackStrategy strategy) {
