@@ -16,6 +16,7 @@ public class Battle {
         System.out.println("=== BATTLE DIMULAI! ===");
         printTeamStatus("Team A", teamA);
         printTeamStatus("Team B", teamB);
+        int turn = 1;
     }
 
     private void printTeamStatus(String teamName, List<Character> team) {
