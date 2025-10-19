@@ -9,13 +9,34 @@ public abstract class Character {
     private final List<StatusEffect> effects = new ArrayList<>();
 
     protected Character(String name, int health, int attackPower) {
-        // validasi & inisialisasi
+        this.name = name;
+        if (health < 0) {
+            System.out.println("Input health tidak valid (< 0), diatur ke 0.");
+            this.health = 0;
+        } else {
+            this.health = health;
+        }
+        this.maxHealth = this.health;
+        if (attackPower < 0) {
+            System.out.println("Input attackPower tidak valid (< 0), diatur ke 0.");
+            this.attackPower = 0;
+        } else {
+            this.attackPower = attackPower;
+        }
     }
 
     public final String getName() { return name; }
     public final int getAttackPower() { return attackPower; }
     public final int getHealth() { return health; }
-    protected final void setHealth(int value) { /* clamp 0..maxHealth */ }
+    protected final void setHealth(int value) {
+        if (value > this.maxHealth) {
+            this.health = this.maxHealth;
+        } else if (value < 0) {
+            this.health = 0;
+        } else {
+            this.health = value;
+        }
+    }
 
     protected int onIncomingDamage(int base) {
         // hook untuk efek seperti Shield; default return base
