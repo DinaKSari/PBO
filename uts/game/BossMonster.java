@@ -10,5 +10,6 @@ public class BossMonster extends Enemy {
     @Override
     public void attack(Character target) {
         turnCounter++;
+        double damageMultiplier = 1.0;
     }
 }
