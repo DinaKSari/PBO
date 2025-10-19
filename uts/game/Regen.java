@@ -23,4 +23,8 @@ public class Regen implements StatusEffect {
         }
     }
 
+    @Override
+    public boolean isExpired() {
+        return this.duration <= 0;
+    }
 }
