@@ -17,5 +17,7 @@ public class BossMonster extends Enemy {
             System.out.println(getName() + " menggunakan RAGE STRIKE (x2.0 Damage)!");
             damageMultiplier = 2.0;
         }
+        int damage = (int) (getAttackPower() * damageMultiplier);
+        target.takeDamage(damage);
     }
 }
