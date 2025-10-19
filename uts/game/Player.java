@@ -40,5 +40,15 @@ public class Player extends Character {
                 break;
             }
         }
+        if (hasPiercingStrike && !this.skills.isEmpty()) {
+            Skill randomSkill = this.skills.get(rand.nextInt(this.skills.size()));
+            System.out.println(getName() + " memutuskan menggunakan skill " + randomSkill.name() + "!");
+            randomSkill.apply(this, target);
+            
+        } else {
+            System.out.println(getName() + " melakukan serangan biasa!");
+            int damage = this.strategy.computeDamage(this, target);
+            target.takeDamage(damage);
+        }
     }
 }
