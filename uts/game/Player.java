@@ -51,4 +51,7 @@ public class Player extends Character {
             target.takeDamage(damage);
         }
     }
+    public int getLevel(){
+        return level;
+    }
 }
