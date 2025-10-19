@@ -9,4 +9,8 @@ public class Shield implements StatusEffect {
         this.duration = Math.max(1, duration);
     }
 
+    @Override
+    public void onTurnStart(Character self) {
+        // No effect di awal giliran
+    }
 }
