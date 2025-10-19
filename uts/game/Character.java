@@ -62,7 +62,14 @@ public abstract class Character {
         setHealth(getHealth() - Math.max(0, finalDamage)); 
     }
 
-    public final void addEffect(StatusEffect e) { /* validasi & tambah */ }
+    public final void addEffect(StatusEffect e) { 
+        if (e != null) {
+            this.effects.add(e);
+            System.out.println(this.getName() + " mendapatkan efek baru!");
+        } else {
+            System.out.println("Gagal menambah efek: efek null.");
+        }
+    }
 
     public final void performTurn(Character target) {
         if (!this.isAlive()) {
