@@ -33,6 +33,12 @@ public class Player extends Character {
 
     @Override
     public void attack(Character target) {
-        // gunakan strategy computeDamage, cek apakah ada PiercingStrike di skills lalu apply
+        boolean hasPiercingStrike = false;
+        for (Skill s : this.skills) {
+            if (s instanceof PiercingStrike) {
+                hasPiercingStrike = true;
+                break;
+            }
+        }
     }
 }
