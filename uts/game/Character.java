@@ -50,7 +50,21 @@ public abstract class Character {
     public final void addEffect(StatusEffect e) { /* validasi & tambah */ }
 
     public final void performTurn(Character target) {
-        // panggil effects.onTurnStart, attack(target), effects.onTurnEnd
+        if (!this.isAlive()) {
+            System.out.println(this.getName() + " sudah kalah dan tidak bisa bergerak.");
+            return;
+        } else if (!target.isAlive()) {
+            System.out.println(this.getName() + " ingin menyerang " + target.getName() + ", tapi target sudah kalah.");
+            return;
+        } else{
+            System.out.println(this.getName() + " menyerang " + target.getName() + "!");
+            this.attack(target);
+            if (!target.isAlive()) {
+                System.out.println(target.getName() + " telah dikalahkan!");
+            } else {
+                System.out.println(target.getName() + " sekarang memiliki " + target.getHealth() + " HP.");
+            }
+        }
     }
 
     public abstract void attack(Character target);
