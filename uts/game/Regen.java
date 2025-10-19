@@ -9,5 +9,11 @@ public class Regen implements StatusEffect {
         this.duration = Math.max(1, duration);    
     }
 
+    @Override
+    public void onTurnStart(Character self) {
+        System.out.println(self.getName() + " meregenerasi " + this.healPerTurn + " HP.");
+        self.setHealth(self.getHealth() + this.healPerTurn);
+    }
+
 
 }
