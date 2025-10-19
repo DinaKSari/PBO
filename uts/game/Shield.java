@@ -26,4 +26,8 @@ public class Shield implements StatusEffect {
     public boolean isExpired() {
         return this.duration <= 0;
     }
+
+    public int getFlatReduce() {
+        return this.flatReduce;
+    }
 }
