@@ -11,5 +11,6 @@ public class BossMonster extends Enemy {
     public void attack(Character target) {
         turnCounter++;
         double damageMultiplier = 1.0;
+        boolean isHealthLow = (double)getHealth() / (double)maxHealth < 0.5;
     }
 }
