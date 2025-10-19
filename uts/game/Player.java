@@ -14,6 +14,12 @@ public class Player extends Character {
         } else {
             this.level = level;
         }
+        if (strategy == null) {
+             System.out.println("Error: AttackStrategy tidak boleh null!");
+            throw new IllegalArgumentException("AttackStrategy tidak boleh null.");
+        } else {
+            this.strategy = strategy;
+        }
     }
     private static final Random rand = new Random();
     public void addSkill(Skill s) { /* non-null */ }
