@@ -39,7 +39,19 @@ public abstract class Character {
     }
 
     protected int onIncomingDamage(int base) {
-        // hook untuk efek seperti Shield; default return base
+        int originalDamage = base;
+        int totalReduction = 0;
+
+        for (StatusEffect effect : this.effects) {
+            if (effect instanceof Shield) {
+                Shield shield = (Shield) effect;
+                totalReduction += shield.getFlatReduce();
+            }
+        }
+        if (totalReduction > 0) {
+            base = Math.max(0, base - totalReduction);
+            System.out.println(getName() + " memblok " + (originalDamage - base) + " damage dengan Shield!");
+        }
         return base;
     }
 
