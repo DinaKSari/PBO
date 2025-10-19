@@ -22,7 +22,14 @@ public class Player extends Character {
         }
     }
     private static final Random rand = new Random();
-    public void addSkill(Skill s) { /* non-null */ }
+    public void addSkill(Skill s) {
+        if (s != null) {
+            this.skills.add(s);
+            System.out.println(getName() + " mempelajari skill: " + s.name());
+        } else {
+            System.out.println("Gagal menambahkan skill: skill tidak boleh null.");
+        }
+    }
 
     @Override
     public void attack(Character target) {
