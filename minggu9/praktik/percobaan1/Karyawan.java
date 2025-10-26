@@ -5,9 +5,9 @@ public class Karyawan {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+    // public static void main(String[] args) {
+    //     // TODO code application logic here
+    // }
     private String nama;
     private String nip;
     private String golongan;
@@ -26,20 +26,20 @@ public class Karyawan {
     public void setGolongan(String golongan)
     {
         this.golongan=golongan;
-    }
 
 
     switch(golongan.charAt(0)){
         case '1':this.gaji=5000000;
-        break;
+            break;
         case '2':this.gaji=3000000;
-        break;
+            break;
         case '3':this.gaji=2000000;
-        break;
+            break;
         case '4':this.gaji=1000000;
-        break;
-        case '5':this.gaji=750000;
-        break;
+            break;
+        case 'S':this.gaji=750000;
+            break;
+    }
     }
 
     public void setGaji(double gaji)
@@ -66,5 +66,5 @@ public class Karyawan {
     {
         return gaji;
     }
-}
+    
 }
