@@ -3,4 +3,9 @@ package minggu11.tugas;
 public abstract class Zombie implements Destroyable {
     protected int health;
     protected int level;
+    
+    public Zombie(int health, int level) {
+        this.health = health;
+        this.level = level;
+    }
 }
