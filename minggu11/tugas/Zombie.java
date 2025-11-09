@@ -13,5 +13,8 @@ public abstract class Zombie implements Destroyable {
 
     @Override
     public abstract void destroyed();
-
+    
+    public String getZombieInfo() {
+        return "Health = " + this.health + "\nLevel = " + this.level;
+    }
 }
