@@ -16,4 +16,9 @@ public class WalkingZombie extends Zombie {
         }
     }
 
+    @Override
+    public void destroyed() {
+        this.health = (int) (this.health * 0.81); 
+    }
+
 }
