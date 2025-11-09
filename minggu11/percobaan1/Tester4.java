@@ -15,5 +15,6 @@ public class Tester4 {
         ow.showMyEmployee(pEmp); //show permanent employee info
         System.out.println("--------------------");
         ow.showMyEmployee(iEmp); //show internship employee info
+        ow.pay(iEmp);
     }
 }
