@@ -1,5 +1,6 @@
 package minggu11.tugas;
 
-public class Zombie {
-
+public abstract class Zombie implements Destroyable {
+    protected int health;
+    protected int level;
 }
