@@ -21,4 +21,8 @@ public class WalkingZombie extends Zombie {
         this.health = (int) (this.health * 0.81); 
     }
 
+    @Override
+    public String getZombieInfo() {
+        return "Walking Zombie Data =\n" + super.getZombieInfo();
+    }
 }
