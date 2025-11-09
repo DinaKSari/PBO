@@ -8,4 +8,10 @@ public abstract class Zombie implements Destroyable {
         this.health = health;
         this.level = level;
     }
+    
+    public abstract void heal();
+
+    @Override
+    public abstract void destroyed();
+
 }
