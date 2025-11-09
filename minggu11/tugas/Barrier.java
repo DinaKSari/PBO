@@ -17,7 +17,6 @@ public class Barrier implements Destroyable {
 
     @Override
     public void destroyed() {
-        // Logika disesuaikan agar output 100 -> 64 dalam 4 langkah
         this.strength = (int) (this.strength * 0.9);
     }
 
