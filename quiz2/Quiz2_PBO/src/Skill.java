@@ -1,4 +1,4 @@
-package quiz2;
+package quiz2.Quiz2_PBO.src;
 
 public interface Skill {
     String name();

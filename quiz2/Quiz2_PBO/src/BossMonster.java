@@ -1,4 +1,4 @@
-package quiz2;
+package quiz2.Quiz2_PBO.src;
 
 public class BossMonster extends Enemy {
     private int turnCounter = 0;
