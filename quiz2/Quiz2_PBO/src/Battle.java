@@ -123,7 +123,7 @@ public class Battle {
         return bestTarget;
     }
 
-    private boolean isTeamAlive(List<Character> team) {
+    public boolean isTeamAlive(List<Character> team) {
         for (Character member : team) {
             if (member.isAlive()) {
                 return true;

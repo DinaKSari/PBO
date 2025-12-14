@@ -6,7 +6,7 @@ public class HealSkill implements Skill {
         this.amount = Math.max(0, amount);
     }
     @Override
-    public String name() {
+    public String getName() {
         return "Heal";
     }
 

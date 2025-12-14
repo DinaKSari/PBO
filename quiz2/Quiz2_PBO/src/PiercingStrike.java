@@ -7,14 +7,14 @@ public class PiercingStrike implements Skill {
     }
 
     @Override
-    public String name() {
+    public String getName() {
         return "Piercing Strike";
     }
 
     @Override
     public void apply(Character self, Character target) {
         int damage = (int) (self.getAttackPower() * this.multiplier);
-        System.out.println(self.getName() + " menggunakan " + name() + " terhadap " + target.getName() + "!");
+        System.out.println(self.getName() + " menggunakan " + getName() + " terhadap " + target.getName() + "!");
         target.setHealth(target.getHealth() - Math.max(0, damage));
     }
 }

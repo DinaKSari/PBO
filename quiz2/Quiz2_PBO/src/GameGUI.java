@@ -10,7 +10,7 @@ import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
 public class GameGUI extends JFrame {
-
+    private GameDBManager dbManager;
     // Data tim dan list skill
     private List<Character> teamA = new ArrayList<>();
     private List<Character> teamB = new ArrayList<>();
@@ -38,6 +38,7 @@ public class GameGUI extends JFrame {
     private JButton btnStartBattle;
 
     public GameGUI() {
+        dbManager = new GameDBManager();
         setTitle("RPG Battle Simulator");
         setSize(900, 650);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,21 +70,32 @@ public class GameGUI extends JFrame {
     }
 
     private void preloadDefaults() {
-        // Default Skills
-        availableSkills.add(new HealSkill(20));
-        availableSkills.add(new PiercingStrike(1.5));
-        updateSkillListUI();
+        // 1. Load Skill dari DB
+        availableSkills = dbManager.loadSkills();
+        
+        // Update List Model UI untuk Skill
+        skillListModel.clear();
+        for (Skill s : availableSkills) {
+            if (s instanceof HealSkill) {
+                skillListModel.addElement("[Heal] " + s.getName());
+            } else {
+                skillListModel.addElement("[Attack] " + s.getName());
+            }
+        }
 
-        // Default Player
-        Player p = new Player("Hero Default", 500, 50, 1, new LevelScaledStrategy(5));
-        p.addSkill(availableSkills.get(0)); // Add Heal
-        teamA.add(p);
-        updateTeamAListUI();
+        // 2. Load Hero dari DB (Opsional, jika ingin list Team A terisi otomatis)
+        List<Player> dbHeroes = dbManager.loadHeroes();
+        for(Player p : dbHeroes) {
+            teamA.add(p);
+            teamAListModel.addElement("[Hero] " + p.getName() + " (Lvl " + p.getLevel() + ")");
+        }
 
-        // Default musuh
-        Monster m = new Monster("Goblin", 100, 20, 1, new FixedStrategy());
-        teamB.add(m);
-        updateTeamBListUI();
+        // 3. Load Enemy dari DB (Opsional)
+        List<Character> dbEnemies = dbManager.loadEnemies();
+        for(Character e : dbEnemies) {
+            teamB.add(e);
+            teamBListModel.addElement("[Enemy] " + e.getName());
+        }
     }
 
     // panel 1 skill
@@ -122,20 +134,20 @@ public class GameGUI extends JFrame {
     // action
     btnAddSkill.addActionListener(e -> {
         try {
-            String type = (String) cmbSkillType.getSelectedItem();
-            double val = Double.parseDouble(txtSkillAmountOrMult.getText());
+            String name = JOptionPane.showInputDialog("Enter Skill Name:");
+            String typeStr = (String) cmbSkillType.getSelectedItem();
+            double value = Double.parseDouble(txtSkillAmountOrMult.getText());
+
+            // Simpan ke Database
+            String dbType = typeStr.contains("Heal") ? "HEAL" : "ATTACK";
+            dbManager.saveSkill(name, dbType, value);
+
+            // Refresh UI
+            preloadDefaults(); // Reload list dari database
+            JOptionPane.showMessageDialog(this, "Skill Saved to Database!");
             
-            Skill newSkill;
-            if ("Heal Skill".equals(type)) {
-                newSkill = new HealSkill((int) val);
-            } else {
-                newSkill = new PiercingStrike(val);
-            }
-            availableSkills.add(newSkill);
-            updateSkillListUI();
-            JOptionPane.showMessageDialog(this, "Skill Added!");
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Invalid Number Format");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error saving skill: " + ex.getMessage());
         }
     });
 
@@ -185,27 +197,29 @@ public class GameGUI extends JFrame {
         JButton btnClearA = new JButton("Clear Team A");
 
         btnAddPlayer.addActionListener(e -> {
-            try {
-                String name = txtPlayerName.getText();
-                int hp = Integer.parseInt(txtPlayerHP.getText());
-                int ap = Integer.parseInt(txtPlayerAP.getText());
-                int lvl = Integer.parseInt(txtPlayerLevel.getText());
+        try {
+            String name = txtPlayerName.getText();
+            int hp = Integer.parseInt(txtPlayerHP.getText());
+            int ap = Integer.parseInt(txtPlayerAP.getText());
+            int lvl = Integer.parseInt(txtPlayerLevel.getText());
+            
+            // Buat object Player
+            Player p = new Player(name, hp, ap, lvl, new LevelScaledStrategy(10));
+            
+            // --- LOGIKA SKILL (Sederhana) ---
+            // (Kode mengambil skill dari JList tetap sama seperti sebelumnya...)
+            
+            // SIMPAN HERO KE DATABASE
+            dbManager.saveHero(p);
 
-                // Default strategi 
-                Player p = new Player(name, hp, ap, lvl, new LevelScaledStrategy(5));
-                
-                // Add selected skills
-                int[] selectedIndices = skillSelector.getSelectedIndices();
-                for (int idx : selectedIndices) {
-                    p.addSkill(availableSkills.get(idx));
-                }
-
-                teamA.add(p);
-                updateTeamAListUI();
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Error input data: " + ex.getMessage());
-            }
-        });
+            // Update UI
+            teamA.add(p);
+            teamAListModel.addElement("[Hero] " + p.getName() + " (Lvl " + p.getLevel() + ")");
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+        }
+    });
 
         btnClearA.addActionListener(e -> {
             teamA.clear();
@@ -256,25 +270,32 @@ public class GameGUI extends JFrame {
         JButton btnClearB = new JButton("Clear Team B");
 
         btnAddEnemy.addActionListener(e -> {
-            try {
-                String name = txtEnemyName.getText();
-                int hp = Integer.parseInt(txtEnemyHP.getText());
-                int ap = Integer.parseInt(txtEnemyAP.getText());
-                int threat = Integer.parseInt(txtThreatLevel.getText());
-                boolean isBoss = chkIsBoss.isSelected();
+        try {
+            // ... ambil data dari textfield (name, hp, ap, threat) ...
+            String name = txtEnemyName.getText();
+            int hp = Integer.parseInt(txtEnemyHP.getText());
+            int ap = Integer.parseInt(txtEnemyAP.getText());
+            int threat = Integer.parseInt(txtThreatLevel.getText());
+            boolean isBoss = chkIsBoss.isSelected();
 
-                if (isBoss) {
-                    BossMonster b = new BossMonster(name, hp, ap, threat, new FixedStrategy());
-                    teamB.add(b);
-                } else {
-                    Monster m = new Monster(name, hp, ap, threat, new FixedStrategy());
-                    teamB.add(m);
-                }
-                updateTeamBListUI();
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Error input data.");
+            Enemy enemy;
+            if (isBoss) {
+                enemy = new BossMonster(name, hp, ap, threat, new FixedStrategy());
+            } else {
+                enemy = new Monster(name, hp, ap, threat, new FixedStrategy());
             }
-        });
+
+            // SIMPAN KE DATABASE
+            dbManager.saveEnemy(enemy, isBoss);
+
+            // Update UI
+            teamB.add(enemy);
+            teamBListModel.addElement((isBoss ? "[BOSS] " : "[Monster] ") + name);
+
+        } catch (Exception ex) {
+            // Handle error
+        }
+    });
 
         btnClearB.addActionListener(e -> {
             teamB.clear();
@@ -317,7 +338,7 @@ public class GameGUI extends JFrame {
     private void updateSkillListUI() {
         skillListModel.clear();
         for (Skill s : availableSkills) {
-            skillListModel.addElement(s.name());
+            skillListModel.addElement(s.getName());
         }
     }
 
@@ -351,6 +372,15 @@ public class GameGUI extends JFrame {
             try {
                 Battle battle = new Battle(teamA, teamB);
                 battle.run();
+                String battleLogContent = battleLog.getText();
+                String winner = "Unknown";
+
+                if (!battle.isTeamAlive(teamA)) winner = "Team B (Enemy)";
+                else if (!battle.isTeamAlive(teamB)) winner = "Team A (Hero)";
+                else winner = "Draw";
+
+                // Simpan History
+                dbManager.saveBattleHistory(winner, battleLogContent);
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {

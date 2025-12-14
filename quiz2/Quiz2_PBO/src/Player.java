@@ -25,7 +25,7 @@ public class Player extends Character {
     public void addSkill(Skill s) {
         if (s != null) {
             this.skills.add(s);
-            System.out.println(getName() + " mempelajari skill: " + s.name());
+            System.out.println(getName() + " mempelajari skill: " + s.getName());
         } else {
             System.out.println("Gagal menambahkan skill: skill tidak boleh null.");
         }
@@ -42,7 +42,7 @@ public class Player extends Character {
         }
         if (hasPiercingStrike && !this.skills.isEmpty()) {
             Skill randomSkill = this.skills.get(rand.nextInt(this.skills.size()));
-            System.out.println(getName() + " memutuskan menggunakan skill " + randomSkill.name() + "!");
+            System.out.println(getName() + " memutuskan menggunakan skill " + randomSkill.getName() + "!");
             randomSkill.apply(this, target);
             
         } else {
